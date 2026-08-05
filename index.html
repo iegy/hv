@@ -1,42 +1,48 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Viewer</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>🌐 HTML Viewer</h1>
-            <p>عرض ومعاينة ملفات HTML بسهولة</p>
-        </header>
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HV — Advanced HTML Viewer</title>
+    <link rel="stylesheet" href="/src/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>مستعرض HTML متقدّم</h1>
+      <div class="controls">
+        <label><input type="checkbox" id="autoUpdate" checked> تحديث تلقائي</label>
+        <label><input type="checkbox" id="allowScripts"> تشغيل JavaScript</label>
+        <label><input type="checkbox" id="sanitize" checked> تعقيم (DOMPurify)</label>
+        <label><input type="checkbox" id="rtlToggle"> وضع RTL</label>
+        <select id="device">
+          <option value="">جهاز: responsive</option>
+          <option value="375">iPhone 6/7/8 (375px)</option>
+          <option value="768">Tablet (768px)</option>
+          <option value="1024">Desktop (1024px)</option>
+        </select>
+        <button id="formatBtn">تنسيق</button>
+        <button id="minifyBtn">تصغير</button>
+        <button id="downloadBtn">تحميل</button>
+        <button id="copyBtn">نسخ</button>
+        <button id="fullscreenBtn">تكبير</button>
+      </div>
+    </header>
 
-        <div class="main-content">
-            <div class="editor-section">
-                <div class="section-header">
-                    <h2>محرر HTML</h2>
-                    <div class="button-group">
-                        <button id="clearBtn" class="btn btn-danger">حذف</button>
-                        <button id="downloadBtn" class="btn btn-info">تحميل</button>
-                        <button id="uploadBtn" class="btn btn-success">رفع ملف</button>
-                        <input type="file" id="fileInput" accept=".html,.htm" style="display:none;">
-                    </div>
-                </div>
-                <textarea id="htmlEditor" placeholder="ألصق كود HTML هنا..."></textarea>
-            </div>
+    <main class="workspace">
+      <section class="editor-pane">
+        <div id="editor" class="editor"></div>
+      </section>
 
-            <div class="preview-section">
-                <div class="section-header">
-                    <h2>المعاينة</h2>
-                    <button id="refreshBtn" class="btn btn-primary">تحديث</button>
-                </div>
-                <iframe id="preview" sandbox="allow-scripts allow-same-origin"></iframe>
-            </div>
-        </div>
-    </div>
+      <section class="preview-pane">
+        <div class="preview-toolbar">المعاينة</div>
+        <iframe id="preview" sandbox="allow-forms allow-same-origin" title="preview"></iframe>
+      </section>
+    </main>
 
-    <script src="script.js"></script>
-</body>
+    <script type="module" src="/src/main.js"></script>
+    <!-- Libraries loaded from CDN for quick setup -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.15.0/ace.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify-html.min.js" defer></script>
+  </body>
 </html>
