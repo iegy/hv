@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مولّد النكات العشوائية</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>😂 مولّد النكات العشوائية</h1>
+            <p>اضغط على الزر للحصول على نكتة جديدة</p>
+        </header>
+
+        <main>
+            <div class="joke-card">
+                <div class="joke-content">
+                    <p id="jokeText" class="joke-text">اضغط على الزر للحصول على نكتة...</p>
+                    <p id="jokeAnswer" class="joke-answer" style="display: none;"></p>
+                </div>
+
+                <div class="controls">
+                    <button id="getJokeBtn" class="btn btn-primary">
+                        <span class="btn-icon">🎲</span>
+                        احصل على نكتة
+                    </button>
+                    <button id="revealBtn" class="btn btn-secondary" style="display: none;">
+                        <span class="btn-icon">👀</span>
+                        اكتشف الإجابة
+                    </button>
+                    <button id="shareBtn" class="btn btn-info">
+                        <span class="btn-icon">📤</span>
+                        شارك
+                    </button>
+                    <button id="copyBtn" class="btn btn-success">
+                        <span class="btn-icon">📋</span>
+                        انسخ
+                    </button>
+                </div>
+
+                <div class="joke-info">
+                    <span id="jokeCategory" class="category">غير محدد</span>
+                    <span id="jokeType" class="type">نوع النكتة</span>
+                </div>
+            </div>
+
+            <div class="settings">
+                <h2>⚙️ الإعدادات</h2>
+                
+                <div class="setting-group">
+                    <label for="categorySelect">الفئة:</label>
+                    <select id="categorySelect">
+                        <option value="">عشوائية</option>
+                        <option value="general">عام</option>
+                        <option value="knock-knock">طرقة الباب</option>
+                        <option value="programming">برمجة</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label for="languageSelect">اللغة:</label>
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                    </select>
+                </div>
+
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="safeMode" checked>
+                        الوضع الآمن
+                    </label>
+                </div>
+            </div>
+
+            <div class="favorites">
+                <h2>❤️ النكات المفضلة</h2>
+                <div id="favoritesList" class="favorites-list">
+                    <p class="empty-message">لا توجد نكات مفضلة حتى الآن</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>تم التطوير بواسطة <a href="https://github.com/iegy" target="_blank">iegy</a></p>
+            <p>البيانات من <a href="https://jokeapi.dev" target="_blank">JokeAPI</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
